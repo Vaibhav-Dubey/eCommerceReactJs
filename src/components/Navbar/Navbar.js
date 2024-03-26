@@ -28,11 +28,11 @@ const Navbar = () => {
       <div className='navbar-cnt flex align-center'>
         <div className='brand-and-toggler flex align-center'>
           <button type = "button" className='sidebar-show-btn text-white' onClick={() => dispatch(setSidebarOn())}>
-            <i className='fas fa-bars'></i>
+            <i className='fas fa-book'></i>
           </button>
           <Link to = "/" className='navbar-brand flex align-center'>
             <span className='navbar-brand-ico'>
-              <i className='fa-solid fa-cart-shopping'></i>
+              <i className='fa fa-shopping-basket'></i>
             </span>
             <span className='navbar-brand-txt mx-2'>
               <span className='fw-7'>Shop</span>Now.
