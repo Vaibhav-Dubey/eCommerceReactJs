@@ -1,21 +1,21 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useCallback} from 'react';
 import "./SearchPage.scss";
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { STATUS } from '../../utils/status';
 import Loader from '../../components/Loader/Loader';
 import ProductList from '../../components/ProductList/ProductList';
-import { fetchAsyncSearchProduct, getSearchProducts, setSearchTerm, getSearchProductsStatus, clearSearch } from '../../store/searchSlice';
+import { fetchAsyncSearchProduct, getSearchProducts,  getSearchProductsStatus, clearSearch } from '../../store/searchSlice';
 
 const SearchPage = () => {
   const dispatch = useDispatch();
   const {searchTerm } = useParams();
   const searchProducts = useSelector(getSearchProducts);
   const searchProductsStatus = useSelector(getSearchProductsStatus);
-
+  const stableDispatch = useCallback(dispatch, [])
   useEffect(() => {
-    dispatch(clearSearch());
-    dispatch(fetchAsyncSearchProduct(searchTerm));
+    stableDispatch(clearSearch());
+    stableDispatch(fetchAsyncSearchProduct(searchTerm));
   }, [searchTerm]);
 
   if(searchProducts.length === 0){

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useCallback} from 'react';
 import "./HomePage.scss";
 import HeaderSlider from "../../components/Slider/HeaderSlider";
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,9 +11,9 @@ import { STATUS } from '../../utils/status';
 const HomePage = () => {
   const dispatch = useDispatch();
   const categories = useSelector(getAllCategories);
-
+  const stableDispatch = useCallback(dispatch, [])
   useEffect(() => {
-    dispatch(fetchAsyncProducts(50));
+    stableDispatch(fetchAsyncProducts(50));
   }, []);
 
   const products = useSelector(getAllProducts);

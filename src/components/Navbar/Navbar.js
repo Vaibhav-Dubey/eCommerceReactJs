@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,useCallback} from 'react';
 import "./Navbar.scss";
 import {Link} from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux';
@@ -18,9 +18,9 @@ const Navbar = () => {
     e.preventDefault();
     setSearchTerm(e.target.value);
   }
-
+  const stableDispatch = useCallback(dispatch, [])
   useEffect(() => {
-    dispatch(getCartTotal());
+    stableDispatch(getCartTotal());
   }, [carts])
 
   return (
