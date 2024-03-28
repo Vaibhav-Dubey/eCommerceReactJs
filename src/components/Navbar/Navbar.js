@@ -27,9 +27,7 @@ const Navbar = () => {
     <nav className='navbar'>
       <div className='navbar-cnt flex align-center'>
         <div className='brand-and-toggler flex align-center'>
-          <button type = "button" className='sidebar-show-btn text-white' onClick={() => dispatch(setSidebarOn())}>
-            <i className='fas fa-book'></i>
-          </button>
+          
           <Link to = "/" className='navbar-brand flex align-center'>
             <span className='navbar-brand-ico'>
               <i className='fa fa-shopping-basket'></i>
@@ -59,6 +57,13 @@ const Navbar = () => {
                 </li>
               ))
             }
+            <li className='nav-item no wrap'>
+              {/* <button type = "button" className='sidebar-show-btn text-white' onClick={() => dispatch(setSidebarOn())}> */}
+            {/* <i className='fa fa-ellipsis-h'></i> */}
+            <Link onClick={() => dispatch(setSidebarOn())} className='nav-link text-capitalize'>More</Link>
+            {/* <span className='fw-3'>fa-more</span> */}
+          {/* </button></li> */}
+          </li>
           </ul>
         </div>
 
